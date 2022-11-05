@@ -2,14 +2,14 @@ import express from 'express'
 
 const PORT = 5000;
 
-const app = express()
+const appRun = express()
 
-app.use(express.json())
+appRun.use(express.json())
 
-app.post('/', (req, res) => {
+appRun.post('/', (req, res) => {
     console.log(req.body)
-    res.status(200).json('Сервер работает')
+    res.status(200).json('server works')
 })
    
 
-app.listen(PORT, () => console.log('Server started on port ' + PORT))
+appRun.listen(PORT, () => console.log('Server started on port ' + PORT))
