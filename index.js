@@ -1,6 +1,6 @@
 import express from 'express'
 import mongoose from 'mongoose';
-import Post from './Post.js';
+import router from './router.js';
 
 const PORT = 5000;
 const DB_URL = 'mongodb+srv://testExpress:EWQ5doMQs2nhjIup@cluster0.4olxvpw.mongodb.net/?retryWrites=true&w=majority'
@@ -8,11 +8,8 @@ const DB_URL = 'mongodb+srv://testExpress:EWQ5doMQs2nhjIup@cluster0.4olxvpw.mong
 const app = express()
 
 app.use(express.json())
+app.use('/api', router)
 
-app.post('/', (req, res) => {
-    const post = Post.create()
-    res.status(200).json('server works')
-})
 
 async function startApp(){
     try{
